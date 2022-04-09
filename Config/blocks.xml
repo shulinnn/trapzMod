@@ -1,0 +1,47 @@
+<Config>
+    <append x-path="/blocks">
+
+        <!-- Create custom exploding barrel trap -->
+        <block name="shExplodingBarrel">
+            <property name="Class" value="Mine"/> <!-- a mine destroyed by an *explosion* only has a 33% chance to detonate -->
+            <property name="Tags" value="Mine"/>
+            <property name="ItemTypeIcon" value="explosion"/>
+            <property name="Material" value="Mmetal_weak"/>
+            <property name="Shape" value="ModelEntity"/>
+            <property name="Model" value="#@modfolder:Resources/trapzMod.unity3d?shExplodingBarrel.prefab"/>
+            <property name="LODCullMin" value=".1"/>
+            <property name="IsTerrainDecoration" value="true"/>
+            <property name="OnlySimpleRotations" value="true"/>
+            <property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+            <property name="Stacknumber" value="25"/> <!-- STK explosives -->
+            <property name="MaxDamage" value="4"/>
+            <property name="TriggerDelay" value="0.5"/>
+            <property name="TriggerSound" value="landmine_trigger"/>
+            <property name="Explosion.ParticleIndex" value="11"/>
+            <property name="Explosion.RadiusBlocks" value="2"/>
+            <property name="Explosion.RadiusEntities" value="4"/>
+            <property name="Explosion.BlockDamage" value="10"/>
+            <property name="Explosion.EntityDamage" value="276"/> <!-- damage for entities in the center of the explosion. -->
+            <property name="Explosion.DamageBonus.stone" value="0.1"/>
+            <property name="Explosion.DamageBonus.metal" value="0.1"/>
+            <property name="Explosion.DamageBonus.earth" value="0"/>
+            <property name="Explosion.DamageBonus.wood" value="0"/>
+            <property name="Explosion.DamageBonus.water" value="0"/>
+            <property name="CanPickup" value="false"/>
+            <!-- <property name="DropScale" value="3"/>  SUPPOSEDLY works (again) but since all blocks use the bag as a drop mesh by default...
+            it  won't do anything interesting unless a specific drop mesh is declared. -->
+            <drop event="Destroy" count="0"/>
+            <property name="Group" value="Tools/Traps"/>
+            <property name="EconomicValue" value="97"/>
+            <property name="FilterTags" value="MC_building,SC_traps"/>
+            <property name="SortOrder1" value="70g0"/>
+            <!--
+            Incendiary mine:
+            <property name="Explosion.ParticleIndex" value="10"/>
+            <property name="Explosion.Buff" value="buffShocked"/>
+            <property name="Explosion.Buff" value="buffBurningMolotov"/>
+            -->
+        </block>
+
+    </append>
+</Config>
